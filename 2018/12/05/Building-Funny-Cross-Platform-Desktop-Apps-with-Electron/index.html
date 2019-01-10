@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="zh">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.6 -->
+    <script>
+        window.materialVersion = "1.5.6"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0',
+            '1.5.2',
+            '1.5.5'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com"/>
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Building Funny Cross-Platform Desktop Apps with Electron | 
+        
+        Code Review
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.zhCN.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?NKhlKQkXw/c66TR5p4wO+w==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+            
+                <style id="prettify_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_css","/css/prettify.min.css?zp8STOU9v89XWFEnN+6YmQ==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+                <style id="prettify_theme"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("prettify_theme","/css/prettify/github-v2.min.css?AfzKxt++K+/lhZBlSjnxwg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+            
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-color: #F5F5F5;
+      }
+
+      /* blog_info bottom background */
+      #scheme-Paradox .material-layout .something-else .mdl-card__supporting-text{
+        background-color: #fff;
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Code Review">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/12/05/Building-Funny-Cross-Platform-Desktop-Apps-with-Electron/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Code Review">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com/2018/12/05/Building-Funny-Cross-Platform-Desktop-Apps-with-Electron/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Building Funny Cross-Platform Desktop Apps with Electron | Code Review">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Wed Dec 05 2018 16:36:01 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jan 10 2019 09:51:59 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/12/05/Building-Funny-Cross-Platform-Desktop-Apps-with-Electron/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/12/05/Building-Funny-Cross-Platform-Desktop-Apps-with-Electron/index.html",
+    "headline": "Building Funny Cross-Platform Desktop Apps with Electron",
+    "datePublished": "Wed Dec 05 2018 16:36:01 GMT+0800",
+    "dateModified": "Thu Jan 10 2019 09:51:59 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Michael Cai",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/avatar.png"
+        },
+        "description": "Hi, nice to meet you"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Code Review",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span id="MD-burger-id" class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Building-Funny-Cross-Platform-Desktop-Apps-with-Electron"><span class="post-toc-number">1.</span> <span class="post-toc-text">Building Funny Cross-Platform Desktop Apps with Electron</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Why"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Why</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为什么要跨平台"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">为什么要跨平台</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#跨平台的难点是什么"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">跨平台的难点是什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为什么选-Electron"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">为什么选 Electron</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#What"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">What</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Electron-的底层原理"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">Electron 的底层原理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Electron-应用的组成"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">Electron 应用的组成</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#主线程"><span class="post-toc-number">1.2.2.1.</span> <span class="post-toc-text">主线程</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#渲染线程"><span class="post-toc-number">1.2.2.2.</span> <span class="post-toc-text">渲染线程</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#线程间通信"><span class="post-toc-number">1.2.2.3.</span> <span class="post-toc-text">线程间通信</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#How-To"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">How To</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何开发"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">如何开发</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#如何打包"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">如何打包</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Typescript"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Typescript</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#什么是-Typescript"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">什么是 Typescript</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Typescript-的优缺点是什么"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">Typescript 的优缺点是什么</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Typescript-开发"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">Typescript 开发</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Funny"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">Funny</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/material-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Building Funny Cross-Platform Desktop Apps with Electron
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/avatar.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Michael Cai</strong>
+        <span>12月 05, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Building Funny Cross-Platform Desktop Apps with Electron&url=http://yoursite.com/2018/12/05/Building-Funny-Cross-Platform-Desktop-Apps-with-Electron/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                分享到微博
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Building Funny Cross-Platform Desktop Apps with Electron&url=http://yoursite.com/2018/12/05/Building-Funny-Cross-Platform-Desktop-Apps-with-Electron/index.html&via=Michael Cai" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/12/05/Building-Funny-Cross-Platform-Desktop-Apps-with-Electron/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/12/05/Building-Funny-Cross-Platform-Desktop-Apps-with-Electron/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                分享到 Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="Building-Funny-Cross-Platform-Desktop-Apps-with-Electron"><a href="#Building-Funny-Cross-Platform-Desktop-Apps-with-Electron" class="headerlink" title="Building Funny Cross-Platform Desktop Apps with Electron"></a>Building Funny Cross-Platform Desktop Apps with Electron</h1><h2 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h2><h3 id="为什么要跨平台"><a href="#为什么要跨平台" class="headerlink" title="为什么要跨平台"></a>为什么要跨平台</h3><p><strong>“我们需要一个这样的应用”</strong></p>
+<p>通常来说，只有在同时满足以下几点条件的时候，我们才需要跨平台：</p>
+<ol>
+<li>多平台原生应用。</li>
+<li><strong>钱</strong>不够。</li>
+<li><strong>人</strong>不够。</li>
+<li>应用的<strong>重要性</strong>不够。</li>
+</ol>
+<p>如果不需要多平台，那自然也不需要跨平台。如果这个应用重要性非常高，值得投入大量的人力物力，每一个平台一个单独的开发团队，自然也不需要跨平台。但现实情况往往与此相反。</p>
+<h3 id="跨平台的难点是什么"><a href="#跨平台的难点是什么" class="headerlink" title="跨平台的难点是什么"></a>跨平台的难点是什么</h3><p><strong>“Write once, run anywhere”</strong></p>
+<blockquote>
+<p>“一次编写，到处运行”是 Sun 公司（已被甲骨文收购）在推广 Java 语言的跨平台特性时的口号，这意味着 Java 可以在任何设备上开发，然后编译成一段标准的字节码，就可以在任何安装有 Java 虚拟机（JVM）的设备上运行。但理想是丰满的，现实是骨感的，由于 JVM 在不同平台上的实现不尽相同，所以一种应用可能需要在许多平台上进行测试才能确保正确性和稳定性，这造就了一个程序员间的笑话：“一次编译，到处调试”（“Write Once, Debug Everywhere”）。</p>
+</blockquote>
+<p>跨平台的难点主要有以下几点：</p>
+<ul>
+<li>平台之间差异大</li>
+<li>平台持续更新迭代</li>
+<li>逻辑复杂，代码量大</li>
+</ul>
+<p>所有的跨平台的技术方案都大同小异，不外乎是在每一个平台上写一个<strong>运行时环境</strong>，通过这个运行时来掩盖各个平台之间的差异，但是和 JVM 所遇到的问题一样，平台之间的差异太大，运行时并不能完全的掩盖住平台之间的差异，而平台自身的更新迭代更加加剧了这个问题。</p>
+<h3 id="为什么选-Electron"><a href="#为什么选-Electron" class="headerlink" title="为什么选 Electron"></a>为什么选 Electron</h3><p>事实上来说现在流行的跨平台桌面应用开发框架不外乎以下几种：</p>
+<ul>
+<li><a href="https://github.com/electron/electron" target="_blank" rel="noopener">Electron</a></li>
+<li><a href="https://github.com/nwjs/nw.js" target="_blank" rel="noopener">NW.js</a></li>
+<li><a href="https://github.com/mimecorg/vuido" target="_blank" rel="noopener">Vuido</a></li>
+<li><a href="https://github.com/kusti8/proton-native" target="_blank" rel="noopener">Proton-Natvie</a></li>
+<li>Qt5</li>
+</ul>
+<p>Electron 和 NW.js 实现很类似，各有优劣，但 Electron 的生态要更强，这是很重要的一点。而后面的 Vuido 和 Proton-Native 实现类似，和 Electron 选择 Chromium 作为渲染层不同，这两个选择了和 React-Native 相似的方式，自己实现了一个渲染线程来抛弃 Chromium 的包袱，但与此同时也抛弃了 Chromium 的一些优点，渲染层的效果完全依赖于作者的实现，和 Chromium 这种自然没法比，而且生态现在来看几乎没有。而 Qt5 需要结合 C++ 或者 Python 之类的使用，如果没学过相关的语言，会增加额外的成本。</p>
+<p>综合来说， Electron 的生态最好，学习成本也较低。生态是一个很重要的问题，生态决定了一个框架能不能活下去，活不下去的框架理念再好都没意义。</p>
+<p>但 Electron 不是没有缺点，体积太大、占用内存太高、冗余的运行时消耗、无代码保护等问题的存在都说明它不是一个完美的解决方案，不过现阶段而言，它是最好的解决方案之一。</p>
+<h2 id="What"><a href="#What" class="headerlink" title="What"></a>What</h2><p><img src="https://github.com/michaelcai/blog/blob/master/source/_posts/Building-Funny-Cross-Platform-Desktop-Apps-with-Electron/1.jpg?raw=true" alt="img"></p>
+<p><strong>“Electron is a library you can use to build desktop applications with JavaScript, HTML and CSS. “</strong></p>
+<h3 id="Electron-的底层原理"><a href="#Electron-的底层原理" class="headerlink" title="Electron 的底层原理"></a>Electron 的底层原理</h3><p><img src="https://github.com/michaelcai/blog/blob/master/source/_posts/Building-Funny-Cross-Platform-Desktop-Apps-with-Electron/2.png?raw=true" alt="img"></p>
+<p>Electron 由以下三部分组成：</p>
+<ul>
+<li>Chromium 作为渲染层</li>
+<li>Node.js 作为文件层和网络层</li>
+<li>三个系统的本地 API</li>
+</ul>
+<p>Chromium 作为渲染层无缝接入 HTML + CSS + Javascript 生态，庞大的浏览器生态的支持能省掉不少的烦恼，当然带来的副作用也不少，这里就不一一叙述。</p>
+<p>同样的，使用现成的 Node.js 作为文件和网络层也能省掉不少的麻烦。前两者由于都已有开源社区维护，所以三个平台之间的兼容不需要额外的劳动，唯一需要单独做兼容的就是三个系统的本地 API。</p>
+<h3 id="Electron-应用的组成"><a href="#Electron-应用的组成" class="headerlink" title="Electron 应用的组成"></a>Electron 应用的组成</h3><p><img src="https://github.com/michaelcai/blog/blob/master/source/_posts/Building-Funny-Cross-Platform-Desktop-Apps-with-Electron/3.png?raw=true" alt="img"></p>
+<p>Electron 的应用有两个主要的线程：主线程和渲染线程，主线程隐于幕后掌控全局，每一个渲染线程之间都是独立的，互相之间需要通过主线程通信。</p>
+<p><img src="https://github.com/michaelcai/blog/blob/master/source/_posts/Building-Funny-Cross-Platform-Desktop-Apps-with-Electron/6.png?raw=true" alt="img"></p>
+<p>两者间组成就像一个浏览器一样，渲染线程就像浏览器的每一个 Tab, 主线程就是浏览器自身。</p>
+<h4 id="主线程"><a href="#主线程" class="headerlink" title="主线程"></a>主线程</h4><p><img src="https://github.com/michaelcai/blog/blob/master/source/_posts/Building-Funny-Cross-Platform-Desktop-Apps-with-Electron/4.png?raw=true" alt="img"></p>
+<p>主线程的文件名通常是 <strong>main.js</strong> 或 <strong>app.js</strong>，是一个 Electron 应用的唯一入口。主线程负责控制了整个程序的生命周期，在这里编写程序打开、关闭、异常处理等逻辑。</p>
+<p>除此之外，还负责调用本地资源，比如调用本地的对话框、文件框等，还有渲染进程之间的通信都是通过主线程进行的。</p>
+<h4 id="渲染线程"><a href="#渲染线程" class="headerlink" title="渲染线程"></a>渲染线程</h4><p><img src="https://github.com/michaelcai/blog/blob/master/source/_posts/Building-Funny-Cross-Platform-Desktop-Apps-with-Electron/5.png?raw=true" alt="img"></p>
+<p>渲染线程跟普通的浏览器页面基本没有区别，可以跟写普通的页面一样的使用一个渲染线程。除此之外，相比于普通的浏览器页面，你可以在 Electron 渲染线程里自由的调用 Node.js 的功能。</p>
+<h4 id="线程间通信"><a href="#线程间通信" class="headerlink" title="线程间通信"></a>线程间通信</h4><p><img src="https://github.com/michaelcai/blog/blob/master/source/_posts/Building-Funny-Cross-Platform-Desktop-Apps-with-Electron/7.png?raw=true" alt="img"></p>
+<p>主线程和渲染线程之间通过发送 IPC 消息通信，而渲染线程和渲染线程之间需要通过主线程作为中转点通信。</p>
+<h2 id="How-To"><a href="#How-To" class="headerlink" title="How To"></a>How To</h2><p><img src="https://github.com/michaelcai/blog/blob/master/source/_posts/Building-Funny-Cross-Platform-Desktop-Apps-with-Electron/8.png?raw=true" alt="img"></p>
+<blockquote>
+<p>Developing with Electron is like building web pages that you can seamlessly use Node in—or building a Node app in which you can build an interface with HTML and CSS.</p>
+</blockquote>
+<h3 id="如何开发"><a href="#如何开发" class="headerlink" title="如何开发"></a>如何开发</h3><p>借助于 Chromium， Electron 的开发就像开发一个能够无缝使用 Node.js 的网页一样。除了要克服因为平台差异带来的坑之外， Electron 的开发对于前端开发人员来说应该是无压力入门的。</p>
+<p>开发一个 Electron 应用本质上就是开发一个 Web + Node.js  应用，之前使用的单元测试方案，项目构建方案等都可以继续使用。</p>
+<p>入门时可以借助 <a href="https://github.com/electron/fiddle" target="_blank" rel="noopener">Fiddle</a> 来暂时跳过环境配置、脚手架选择等问题，快速的进入开发。</p>
+<h3 id="如何打包"><a href="#如何打包" class="headerlink" title="如何打包"></a>如何打包</h3><p>现阶段较为流行的 Electron 打包工具有 <a href="https://github.com/electron-userland/electron-packager" target="_blank" rel="noopener">Electron-packager</a> 和 <a href="https://github.com/electron-userland/electron-builder" target="_blank" rel="noopener">Electron-builder</a>。</p>
+<p>后者的封装程度更高，所需要做的事情会少很多，但是如果一旦出现问题会更难定位。选择那个就是取舍问题了。</p>
+<h2 id="Typescript"><a href="#Typescript" class="headerlink" title="Typescript"></a>Typescript</h2><p><img src="https://github.com/michaelcai/blog/blob/master/source/_posts/Building-Funny-Cross-Platform-Desktop-Apps-with-Electron/9.png?raw=true" alt="img"></p>
+<p><strong>“Typescript is a typed superset of Javascript that compiles to plan Javascript.”</strong></p>
+<h3 id="什么是-Typescript"><a href="#什么是-Typescript" class="headerlink" title="什么是 Typescript"></a>什么是 Typescript</h3><p>Typescript 是 Javascript 的超集，除了静态类型检查之外，Typescript 还支持部分 Javascript 后续版本的功能。</p>
+<h3 id="Typescript-的优缺点是什么"><a href="#Typescript-的优缺点是什么" class="headerlink" title="Typescript 的优缺点是什么"></a>Typescript 的优缺点是什么</h3><h3 id="Typescript-开发"><a href="#Typescript-开发" class="headerlink" title="Typescript 开发"></a>Typescript 开发</h3><h2 id="Funny"><a href="#Funny" class="headerlink" title="Funny"></a>Funny</h2>
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/08/09/如何避免出现“帕金森琐碎定律”/" id="post_nav-older" class="next-content">
+            旧篇
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/sidebar_header.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/avatar.png" alt="Michael Cai's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        czm.michael@gmail.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="#" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                主页
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    归档
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/12/">十二月 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/08/">八月 2018<span class="sidebar_archives-count">4</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+    <div class="sidebar-divider"></div>
+
+
+<!-- Theme Material -->
+
+    <a href="https://github.com/viosey/hexo-theme-material"  class="sidebar-footer-text-a" target="_blank">
+        <div class="sidebar-text mdl-button mdl-js-button mdl-js-ripple-effect sidebar-footer-text-div" data-upgraded=",MaterialButton,MaterialRipple">
+            主题 - Material
+            <span class="sidebar-badge badge-circle">i</span>
+        </div>
+    </a>
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+
+    <!-- Google + -->
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+        <a href="https://github.com/michaelcai" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-github">
+                <span class="visuallyhidden">Github</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+
+    <!-- V2EX -->
+    
+
+    <!-- Segmentfault -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©&nbsp;<span year></span>&nbsp;Code Review
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?Bn9UzEm8RrBSxqyZB0zPjA==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+    
+        
+            <script>lsloader.load("prettify_js","/js/prettify.min.js?WN07fivHQSMKWy7BmHBB6w==", true)</script>
+        
+    
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+        
+            $(function() {
+                $('pre').addClass('prettyprint linenums').attr('style', 'overflow:auto;');
+                prettyPrint();
+                })
+        
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    var copyrightNow = new Date().getFullYear();
+    var textContent = document.querySelector('span[year]')
+
+    copyrightSince = 0000;
+    if (copyrightSince === copyrightNow||copyrightSince === 0000) {
+        textContent.textContent = copyrightNow
+    } else {
+        textContent.textContent = copyrightSince + ' - ' + copyrightNow
+    }
+
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.6 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
